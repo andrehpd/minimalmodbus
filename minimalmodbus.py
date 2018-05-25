@@ -99,18 +99,8 @@ class Instrument():
     """
 
     def __init__(self, port, slaveaddress, mode=MODE_RTU):
-'''
-        if port not in _SERIALPORTS or not _SERIALPORTS[port]:
-            self.serial = _SERIALPORTS[port] = serial.Serial(port=port, baudrate=BAUDRATE, parity=PARITY, bytesize=BYTESIZE, stopbits=STOPBITS, timeout=TIMEOUT)
-        else:
-            self.serial = _SERIALPORTS[port]
-            if self.serial.port is None:
-                self.serial.open()
-'''
-				self.serial = port
-				if self.serial.port is None:
-						self.serial.open()
-        """The serial port object as defined by the pySerial module. Created by the constructor.
+        self.serial = port
+        """The serial port object as defined by the pySerial module. Created externally.
 
         Attributes:
             - port (str):      Serial port name.
